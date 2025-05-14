@@ -44,7 +44,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt.get<AuthCubit>(),
+      create: (context) => InjectionContainer.getIt.get<AuthCubit>(),
       child: Scaffold(
         appBar: AppBar(title: Text('Sign Up')),
         body: Padding(

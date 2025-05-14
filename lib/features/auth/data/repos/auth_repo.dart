@@ -12,4 +12,10 @@ abstract class AuthRepo {
     required String email,
     required String password,
   });
+
+  Future<void> addDataToFirestore(UserModel user);
+
+  Future<void> saveDataLocally(UserModel user);
+
+  Future<UserModel> getUserData({required String userId});
 }
