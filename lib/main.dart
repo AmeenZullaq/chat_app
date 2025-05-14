@@ -1,5 +1,9 @@
+import 'package:chat_app/core/services/shared_preferences.dart';
 import 'package:chat_app/features/auth/presentation/pages/login_page.dart';
+import 'package:chat_app/features/auth/presentation/pages/sign_up_page.dart';
 import 'package:chat_app/firebase_options.dart';
+import 'package:chat_app/home/presentation/pages/home_page.dart';
+import 'package:chat_app/injection_container.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +12,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await InjectionContainer.initDependency();
+  await SharedPrefs.init();
   runApp(MyApp());
 }
 
@@ -18,6 +24,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      routes: {
+        SignUpPage.routeName: (context) => SignUpPage(),
+        HomePage.routeName: (context) => HomePage(),
+      },
       home: LoginPage(),
     );
   }
