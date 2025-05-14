@@ -59,4 +59,5 @@ class DefaultFirebaseOptions {
     projectId: 'chat-app-a7dc3',
     storageBucket: 'chat-app-a7dc3.firebasestorage.app',
   );
+
 }
